@@ -1,0 +1,66 @@
+syntax = "proto3";
+package ride_service;
+
+message Ride {
+    string ride_id = 1;
+    string rider_id = 2;
+    string driver_id = 3;
+    string ride_status = 4;
+    string pickup_location = 5;
+    string dropoff_location = 6;
+}
+
+service RideService {
+    rpc RequestRide(RequestRideRequest) returns (RequestRideResponse);
+    rpc AcceptRide(AcceptRideRequest) returns (AcceptRideResponse);
+    rpc StartRide(StartRideRequest) returns (StartRideResponse);
+    rpc CompleteRide(CompleteRideRequest) returns (CompleteRideResponse);
+    rpc GetRideDetails(GetRideDetailsRequest) returns (GetRideDetailsResponse);
+}
+
+message RequestRideRequest {
+    string rider_id = 1;
+    string pickup_location = 2;
+    string dropoff_location = 3;
+}
+
+message RequestRideResponse {
+    string ride_id = 1;
+}
+
+message AcceptRideRequest {
+    string ride_id = 1;
+    string driver_id = 2;
+}
+
+message AcceptRideResponse {
+    string ride_status = 1;
+}
+
+message StartRideRequest {
+    string ride_id = 1;
+}
+
+message StartRideResponse {
+    string ride_status = 1;
+}
+
+message CompleteRideRequest {
+    string ride_id = 1;
+}
+
+message CompleteRideResponse {
+    string ride_status = 1;
+}
+
+message GetRideDetailsRequest {
+    string ride_id = 1;
+}
+
+message GetRideDetailsResponse {
+    string driver_id = 1;
+    string rider_id = 2;
+    string pickup_location = 3;
+    string dropoff_location = 4;
+    string ride_status = 5;
+}
