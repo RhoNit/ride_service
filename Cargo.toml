@@ -1,0 +1,15 @@
+[package]
+name = "ride_service"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+diesel = { version = "2.2.1", features = ["postgres"] }
+prost = "0.12.6"
+serde = { version = "1.0.203", features = ["derive"] }
+serde_json = "1.0.117"
+tokio = { version = "1.38.0", features = ["full"] }
+tonic = "0.11.0"
+
+[build-dependencies]
+tonic-build = "0.11.0"
